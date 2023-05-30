@@ -66,7 +66,7 @@ jobs:
       - name: Checkout Charts Repository
         uses: actions/checkout@v2
         with:
-          repository: Bahmni/helm-charts
+          repository: juanjortega/helm-charts
           ref: gh-pages
           path: helm-charts
           persist-credentials: false
@@ -76,7 +76,7 @@ jobs:
 
       - name: Helm Index
         working-directory: helm-charts/
-        run: helm repo index --merge index.yaml --url https://bahmni.github.io/helm-charts/  .
+        run: helm repo index --merge index.yaml --url https://juanjortega.github.io/helm-charts/  .
 
       - name: Commit and Push Chart Repository
         working-directory: helm-charts/
@@ -85,4 +85,4 @@ jobs:
           git config user.email ${{ secrets.BAHMNI_EMAIL}}
           git add .
           git commit -m "Release of bahmni-web-${{ env.ARTIFACT_VERSION }}"
-          git push 'https://${{ secrets.BAHMNI_USERNAME}}:${{ secrets.BAHMNI_PAT}}@github.com/bahmni/helm-charts.git' gh-pages
+          git push 'https://${{ secrets.BAHMNI_USERNAME}}:${{ secrets.BAHMNI_PAT}}@github.com/juanjortega/helm-charts.git' gh-pages
