@@ -52,7 +52,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: package/docker/Dockerfile
           push: true
-          tags: juanjortega/bahmni-web:${{ env.ARTIFACT_VERSION }},juanjortega/bahmni-web:latest
+          tags: juanjortega/bahmni-web-cmdf:${{ env.ARTIFACT_VERSION }},juanjortega/bahmni-web-cmdf:latest
       - name: Update Version and Image Tag
         run: |
           yq --inplace '.image.tag = "${{ env.ARTIFACT_VERSION }}"' $HELM_CHART_PATH/values.yaml
